@@ -34,7 +34,7 @@ This project aims to deploy OpenStack using the RDO (Red Hat Distribution OpenSt
 3. **System Update**: `dnf -y update`.
 4. **Install Packstack Installer**: `dnf install -y openstack-packstack`.
 5. **Run Packstack Installation**:
-   - Generate answer file: `packstack --gen-answer-file=/root/answers.txt ...`.
+   - Generate answer file: `packstack --gen-answer-file=/root/answers.txt --os-neutron-l2-agent=openvswitch --os-neutron-ml2-mechanism-drivers=openvswitch --os-neutron-ml2-tenant-network-types=vxlan --os-neutron-ml2-type-drivers=vxlan,flat --provision-demo=n --os-neutron-ovs-bridge-mappings=extnet:br-ex --os-neutron-ovs-bridge-interfaces=br-ex:ens192 --keystone-admin-passwd=redhat  --os-heat-install=n`.
    - Run Packstack: `packstack --answer-file=/root/answers.txt -t 3600`.
    - Ensure `br-ex` and `ens192` interfaces are configured correctly.
 
